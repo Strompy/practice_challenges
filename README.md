@@ -1,7 +1,12 @@
 # practice_challenges
 Various practice challenges
 
-# Suggested Problem Solving Steps
+## Links
+1. [Problem solving approach](#approach)
+1. [Palindrome Prompt](#palindrome)
+____
+
+# Analyzing the Problem <a name="approach"></a>
 # Instructions
 
 1. Copy this markdown and paste in your own, private gist
@@ -39,7 +44,7 @@ Various practice challenges
 ## What is the Big O complexity of your solution?
 
 
-# Problem - Palindromic Numbers
+# Problem - Palindromic Numbers <a name="palindrome"></a>
 ![Palindrome](https://media.giphy.com/media/xT5LMYqyIPJtjnjiHm/giphy.gif)
 
 The number 47 has an interesting characteristic.
