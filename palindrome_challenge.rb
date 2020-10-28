@@ -15,8 +15,12 @@
 
 # First solution with string manipulation
 
+def reverse_number(number)
+  number.to_s.reverse.to_i
+end
+
 def palindrome?(number)
-  number == number.to_s.reverse.to_i
+  number == reverse_number(number)
 end
 
 
@@ -24,7 +28,7 @@ def palindromic_numbers(required_amount, min_sum)
   output = []
   number = 0
   until output.length == required_amount do
-    total = number + number.to_s.reverse.to_i
+    total = number + reverse_number(number)
     output << number if palindrome?(total) && total >= min_sum
     number += 1
   end
