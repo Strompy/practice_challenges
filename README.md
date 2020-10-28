@@ -1,6 +1,8 @@
 # practice_challenges
 Various practice challenges
 
+Several come from this [repo](https://github.com/Strompy/mod4-tech-challenges)
+
 ## Contents
 1. [Problem solving approach](#approach)
 1. [Palindrome Prompt](#palindrome)
@@ -62,4 +64,3 @@ Bonus points if you can do this without converting numbers to strings/arrays.
 Limit your online searches to core language documentation only.
 
 ____
-
