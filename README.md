@@ -43,6 +43,8 @@ ____
 
 ### What is the Big O complexity of your solution?
 
+____
+
 
 ## Problem - Palindromic Numbers <a name="palindrome"></a>
 ![Palindrome](https://media.giphy.com/media/xT5LMYqyIPJtjnjiHm/giphy.gif)
@@ -58,3 +60,6 @@ Collect the results in an array. Be sure that you're collecting the interesting 
 Bonus points if you can do this without converting numbers to strings/arrays.
 
 Limit your online searches to core language documentation only.
+
+____
+
