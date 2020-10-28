@@ -1,7 +1,7 @@
 # practice_challenges
 Various practice challenges
 
-## Links
+## Contents
 1. [Problem solving approach](#approach)
 1. [Palindrome Prompt](#palindrome)
 ____
