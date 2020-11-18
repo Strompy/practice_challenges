@@ -60,35 +60,29 @@
 ### Write out any implementation code OR link to repl
 
 class Person
-    attr_accessor :age
-    def initialize(initial_age)
-      # require "pry"; binding.pry
-      # @age = initial_age
-      # if initial_age < 0
-      #   @age = 0
-      #   puts 'Age is not valid, setting age to 0.'
-      # end
-      if initial_age < 0
-        @age = 0
-        puts 'Age is not valid, setting age to 0.'
-      else
-        @age = initial_age
-      end
+  attr_accessor :age
+  def initialize(initial_age)
+    if initial_age < 0
+      @age = 0
+      puts 'Age is not valid, setting age to 0.'
+    else
+      @age = initial_age
     end
+  end
 
-    def am_i_old
-      if @age < 13
-        puts 'You are young.'
-      elsif @age >= 13 && @age < 18
-        puts 'You are a teenager.'
-      else
-        puts 'You are old.'
-      end
+  def am_i_old
+    if age < 13
+      puts 'You are young.'
+    elsif age >= 13 && age < 18
+      puts 'You are a teenager.'
+    else
+      puts 'You are old.'
     end
+  end
 
-    def year_passes
-      @age += 1
-    end
+  def year_passes
+    age += 1
+  end
 end
 
 # Whoever wrote this setup is not a rubyist
