@@ -5,6 +5,7 @@ Several come from this [repo](https://github.com/Strompy/mod4-tech-challenges)
 
 ## Contents
 1. [Problem solving approach](#approach)
+1. [Hacker Rank 30 Days](#hacker)
 1. [Palindrome Prompt](#palindrome)
 1. [Roman Numeral Prompt](#roman)
 ____
@@ -46,6 +47,17 @@ ____
 
 ### What is the Big O complexity of your solution?
 
+____
+
+
+## HackerRank - 30 Days of Code <a name="hacker"></a>
+![Hacker](https://media.giphy.com/media/3o7TKSx0g7RqRniGFG/giphy.gif)
+
+From [HackerRank](https://www.hackerrank.com/domains/tutorials/30-days-of-code)
+
+Since there are 30 of these, the prompts are in each individual file in the `hacker_rank` directory. Following my standard approach as outlined [above](#approach) and completed in 40 minute timeboxes.
+
+Solution code is in the second to last section, towards the bottom of each file
 ____
 
 
