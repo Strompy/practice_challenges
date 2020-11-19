@@ -55,7 +55,7 @@ ____
 
 From [HackerRank](https://www.hackerrank.com/domains/tutorials/30-days-of-code)
 
-Since there are 30 of these, the prompts are in each individual file in the `hacker_rank` directory. Following my standard approach as outlined [above](#approach) and completed in 40 minute timeboxes.
+Since there are 30 of these, the prompts are in each individual file in the `hacker_rank` directory. Following my standard approach as outlined [above](#approach) and completed in 30 or 40 minute timeboxes depending on their listed difficulty level.
 
 Solution code is in the second to last section, towards the bottom of each file
 ____
