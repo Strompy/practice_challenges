@@ -8,6 +8,7 @@ Several come from this [repo](https://github.com/Strompy/mod4-tech-challenges)
 1. [Hacker Rank 30 Days](#hacker)
 1. [Palindrome Prompt](#palindrome)
 1. [Roman Numeral Prompt](#roman)
+1. [Million Integers](#numbers)
 ____
 
 ## Analyzing the Problem <a name="approach"></a>
@@ -128,3 +129,14 @@ puts to_roman(1999)  # should return "MCMXCIX"
 ```
 
 ____
+
+# Problem - Million Integers <a name="numbers"></a>
+![Integers](https://media.giphy.com/media/h12hzyHiCNGRG/giphy.gif)
+
+You have three arrays of equal size -- each has 1 million RANDOM integer values.
+
+Each array is already sorted in ascending order. No individual array has any duplicate values.
+
+Write a method that returns an array of any/all values which are present in all three arrays.
+
+Solve this any way you can, then optimize to run in O(n) time and 1x space complexity.
