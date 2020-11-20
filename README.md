@@ -8,7 +8,7 @@ Several come from this [repo](https://github.com/Strompy/mod4-tech-challenges)
 1. [Hacker Rank 30 Days](#hacker)
 1. [Palindrome Prompt](#palindrome)
 1. [Roman Numeral Prompt](#roman)
-1. [Million Integers](#numbers)
+1. [Million Integers](#million)
 ____
 
 ## Analyzing the Problem <a name="approach"></a>
@@ -130,7 +130,7 @@ puts to_roman(1999)  # should return "MCMXCIX"
 
 ____
 
-# Problem - Million Integers <a name="numbers"></a>
+# Problem - Million Integers <a name="million"></a>
 ![Integers](https://media.giphy.com/media/h12hzyHiCNGRG/giphy.gif)
 
 You have three arrays of equal size -- each has 1 million RANDOM integer values.
