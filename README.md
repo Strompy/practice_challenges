@@ -4,7 +4,7 @@ Various practice challenges
 Several come from this [repo](https://github.com/Strompy/mod4-tech-challenges)
 
 ## Contents
-1. [Problem solving approach](#approach)
+1. [Problem Solving Aapproach](#approach)
 1. [Hacker Rank 30 Days](#hacker)
 1. [Palindrome Prompt](#palindrome)
 1. [Roman Numeral Prompt](#roman)
