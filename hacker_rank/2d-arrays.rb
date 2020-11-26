@@ -80,7 +80,7 @@ end
 horizontal = 0
 vertical = 0
 current_sum = 0
-max_sum = -57 #smallest possible if all negative 9
+max_sum = -63 #smallest possible if all negative 9
 
 while vertical < 4
   while horizontal < 4
