@@ -84,9 +84,9 @@ max_sum = -57 #smallest possible if all negative 9
 
 while vertical < 4
   while horizontal < 4
-    current_sum = arr[vertical][0..(horizontal+2)].sum +
+    current_sum = arr[vertical][horizontal..(horizontal+2)].sum +
       arr[(vertical+1)][(horizontal+1)] +
-      arr[(vertical + 2)][0..(horizontal+2)].sum
+      arr[(vertical + 2)][horizontal..(horizontal+2)].sum
     max_sum = current_sum if current_sum > max_sum
     horizontal += 1
   end
