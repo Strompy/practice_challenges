@@ -146,5 +146,6 @@ ____
 # Advent of Code 2020 🎄 <a name="advent"></a>
 ![Advent](https://media.giphy.com/media/3orif8O3IgBF3MuwNO/giphy.gif)
 
-From [Advent of Code](https://adventofcode.com/). One a day until christmas. I'll write out the prompt in each individual file as well as my approach and analysis
+From [Advent of Code](https://adventofcode.com/).
 
+One a day until christmas. I'll write out the prompt in each individual file as well as my approach and analysis
