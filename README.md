@@ -9,6 +9,7 @@ Several come from this [repo](https://github.com/Strompy/mod4-tech-challenges)
 1. [Palindrome Prompt](#palindrome)
 1. [Roman Numeral Prompt](#roman)
 1. [Million Integers](#million)
+1. [Advent of Code 🎄](#advent)
 ____
 
 ## Analyzing the Problem <a name="approach"></a>
@@ -140,3 +141,10 @@ Each array is already sorted in ascending order. No individual array has any dup
 Write a method that returns an array of any/all values which are present in all three arrays.
 
 Solve this any way you can, then optimize to run in O(n) time and 1x space complexity.
+
+____
+# Advent of Code 2020 🎄 <a name="advent"></a>
+![Advent](https://media.giphy.com/media/3orif8O3IgBF3MuwNO/giphy.gif)
+
+From [Advent of Code](https://adventofcode.com/). One a day until christmas. I'll write out the prompt in each individual file as well as my approach and analysis
+
