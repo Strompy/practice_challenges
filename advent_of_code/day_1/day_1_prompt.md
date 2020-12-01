@@ -34,7 +34,9 @@ Given a list of numbers, find the two that when added together equal `2020`
 Then take those two numbers and multiply them together to find your answer
 
 ### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
-I will test with the smaller sample size, that may not always work for these as the efficiency could be one that improves with larger data
+* I will test with the smaller sample size, that may not always work for these as the efficiency could be one that improves with larger data
+
+* I will assume that none of the inputs will be greater than 2020
 
 ### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
 * There could be a large list of data, efficiency will be key rather than just brute force. Although brute force could solve this problem.
