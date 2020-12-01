@@ -6,7 +6,6 @@ input.each do |datum|
 end
 
 solution = 0
-# require "pry"; binding.pry
 
 for i in 0..data.length do
   current_value = input[i]
@@ -16,7 +15,6 @@ for i in 0..data.length do
     break
   end
 end
-# require "pry"; binding.pry
 
 puts solution
 
