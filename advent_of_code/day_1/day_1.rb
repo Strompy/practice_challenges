@@ -15,8 +15,15 @@ for i in 0..data.length do
     break
   end
 end
-
 puts solution
+
+# second solution
+duos = input.combination(2).to_a
+combo = duos.find do |duo|
+  duo.sum == 2020
+end
+
+puts combo.inject(:*)
 
 # Part 2 - Find three values that add to 2020 and muliply them
 
