@@ -25,7 +25,7 @@ For example, suppose your expense report contained the following:
 
 In this list, the two entries that sum to `2020` are `1721` and `299`. Multiplying them together produces `1721 * 299 = 514579`, so the correct answer is `514579`.
 
-Of course, your expense report is much larger. Find the two entries that sum to `2020`; what do you get if you multiply them together?
+Of course, your expense report is much larger. *Find the two entries that sum to `2020`; what do you get if you multiply them together?*
 
 ## Solution
 
@@ -37,7 +37,8 @@ Then take those two numbers and multiply them together to find your answer
 I will test with the smaller sample size, that may not always work for these as the efficiency could be one that improves with larger data
 
 ### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
-There could be a large list of data, efficiency will be key rather than just brute force. Although brute force could solve this problem.
+* There could be a large list of data, efficiency will be key rather than just brute force. Although brute force could solve this problem.
+* I will need to create a way to read the data for the final result.
 
 ### How would you identify the elements of this problem?
 
@@ -51,10 +52,20 @@ There could be a large list of data, efficiency will be key rather than just bru
 
 
 ### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
+An array would be an easy way to store all the data, working with it would be less easy/risk of inefficiency. Using Ruby's find method would work, I don't know how it works under the hood with arrays and what the performance implications would be. Probably O(N^2) at a minimum.
 
+A hash could help, looking up an exact key would be easy, just have to make up some values. If i know what I am looking for hashes are more efficient
 
 ### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Take input file and convert into data structure (hash)
+Loop until hash[2020-current_number] exists
+iterate through hash, take current value and subtract it from 2020
+check if that resulting value exists in the hash
+if it exists then that is the other value
+multiply current value with current other value
+
 
 ### Write out any implementation code OR link to repl
+See day_1.rb
 
 ### What is the Big O complexity of your solution?
