@@ -19,7 +19,9 @@ end
 puts solution
 
 # Part 2 - Find three values that add to 2020 and muliply them
-trios = input.permutation(3).to_a # superrrr slow
+
+
+trios = input.combination(3).to_a
 
 combo = trios.find do |trio|
   trio.sum == 2020
