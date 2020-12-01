@@ -71,7 +71,8 @@ multiply current value with current other value
 See day_1.rb
 
 ### What is the Big O complexity of your solution?
-O(n)
+O(n) for part 1
+Part 2 is worse with the permutation. It looks like O(n!)
 
 ___
 # Part Two
