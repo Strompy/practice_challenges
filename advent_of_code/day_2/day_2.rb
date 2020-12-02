@@ -1,9 +1,7 @@
 # Part 1
-test = {'1-3 a' => 'abcde',
-'1-3 b' => 'cdefg',
-'2-9 c' => 'ccccccccc'}
 
 inputs = Hash.new
+require "pry"; binding.pry
 File.readlines('input.txt').map do |line|
   key, value = line.chomp.split(': ')
   inputs[key] = value
@@ -11,15 +9,14 @@ end
 
 total_count = 0
 
-inputs.each do |policy, password|
+good_passwords = inputs.select do |policy, password|
   times, letter = policy.split(' ')
   range = Range.new(*times.split('-').map(&:to_i))
-  # require 'pry'; binding.pry
   letter_count = password.count(letter)
-  total_count += 1 if range.include?(letter_count)
+  range.include?(letter_count)
 end
 
-puts total_count
+puts good_passwords.size
 
 # Take inputs and convert to hash with the policy as the key and the password as the value
 # Iterate through that hash
