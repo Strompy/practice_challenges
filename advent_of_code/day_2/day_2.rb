@@ -15,11 +15,14 @@ end
 
 puts good_passwords.size
 
-# Take inputs and convert to hash with the policy as the key and the password as the value
-# Iterate through that hash
-# Inside break the key into two parts
-# range is based on the range in the policy
-# letter is the letter following the range
-# Count the number of times the letter appears in the password
-# Check if that count is within in the range
-# If so, increment the total_count by one
+# Part 2
+
+good_passwords = inputs.select do |policy, password|
+  times, letter = policy.split(' ')
+  position1, position2 = times.split('-').map(&:to_i)
+  require "pry"; binding.pry
+  (password[position1 - 1] == letter) ^ (password[position2 - 1] == letter)
+end
+require "pry"; binding.pry
+
+puts good_passwords.size
