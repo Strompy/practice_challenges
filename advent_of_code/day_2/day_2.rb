@@ -1,13 +1,10 @@
 # Part 1
 
-inputs = Hash.new
-require "pry"; binding.pry
-File.readlines('input.txt').map do |line|
-  key, value = line.chomp.split(': ')
-  inputs[key] = value
-end
+lines = File.readlines('input.txt')
 
-total_count = 0
+inputs = lines.map do |line|
+  key, value = line.chomp.split(':')
+end
 
 good_passwords = inputs.select do |policy, password|
   times, letter = policy.split(' ')
