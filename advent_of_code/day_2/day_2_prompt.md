@@ -57,6 +57,8 @@ In the input there is a policy and a pass word. The policy defines the range of 
 * Range for the number, it should be easy to create and easy to check if the count is within
 * Hash for the inputs. I need the policy and the passwords together and accessed at the same time. Iterating through the hash will easily give me both. And I have to check each input, so there is no unnecessary loss of efficiency by iterating
 
+* Had to pivot from the hash, my readlines to hash method was not converting all the lines into hashes for some reason, I was only getting 780 some lines converted. Now the method converts each into a array of pairs.
+
 ### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
 Take inputs and convert to hash with the policy as the key and the password as the value
 Iterate through that hash
@@ -71,3 +73,4 @@ If so, increment the total_count by one
 See day_2.rb
 
 ### What is the Big O complexity of your solution?
+Part 1 is O(n) for the iteration, and then the count method in each one is O(n), so O(n*m) maybe
