@@ -1,14 +1,20 @@
 # Part 1
-test = {"1-3 a" => "abcde",
-"1-3 b" => "cdefg",
-"2-9 c" => "ccccccccc"}
+test = {'1-3 a' => 'abcde',
+'1-3 b' => 'cdefg',
+'2-9 c' => 'ccccccccc'}
+
+inputs = Hash.new
+File.readlines('input.txt').map do |line|
+  key, value = line.chomp.split(': ')
+  inputs[key] = value
+end
 
 total_count = 0
 
-test.each do |policy, password|
-  times, letter = policy.split(" ")
-  range = Range.new(*times.split("-").map(&:to_i))
-  # require "pry"; binding.pry
+inputs.each do |policy, password|
+  times, letter = policy.split(' ')
+  range = Range.new(*times.split('-').map(&:to_i))
+  # require 'pry'; binding.pry
   letter_count = password.count(letter)
   total_count += 1 if range.include?(letter_count)
 end
