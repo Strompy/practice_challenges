@@ -12,19 +12,26 @@ test = [
   ['#','.','.','.','#','#','.','.','.','.','#'],
   ['.','#','.','.','#','.','.','.','#','.','#']
 ]
-# class TobogganRide
+
+
+slopes = {
+  one: {1 => 1},
+  two: {3 => 1},
+  three: {5 => 1},
+  four: {7 => 1},
+  five: {1 => 2}
+}
+
 
 grid = []
 File.readlines("input.txt").each_with_index do |line, i|
   grid[i] = line.chomp
 end
 
-# Starting at 0,0 follow the pattern of right 3 down one (first move equal 1, 3)
 row = 0
 column = 0
 
-def toboggan_ride(grid, row, column)
-  position = grid[row][column]
+def toboggan_ride(grid, row, column, right, down)
   counter = 0
   length = grid[0].size
   until row >= grid.size
@@ -32,10 +39,19 @@ def toboggan_ride(grid, row, column)
       column -= length
     end
     counter += 1 if grid[row][column] == '#'
-    column += 3
-    row += 1
+    column += right
+    row += down
   end
   counter
 end
 
-puts toboggan_ride(grid, row, column)
+# puts toboggan_ride(grid, row, column)
+
+trees = []
+slopes.each do |number, slope|
+  slope.each do |right, down|
+    trees << toboggan_ride(grid, row, column, right, down)
+  end
+  require "pry"; binding.pry
+end
+p trees.inject(:*)
