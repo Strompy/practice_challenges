@@ -13,7 +13,6 @@ test = [
   ['.','#','.','.','#','.','.','.','#','.','#']
 ]
 
-
 slopes = {
   one: {1 => 1},
   two: {3 => 1},
@@ -21,7 +20,6 @@ slopes = {
   four: {7 => 1},
   five: {1 => 2}
 }
-
 
 grid = []
 File.readlines("input.txt").each_with_index do |line, i|
@@ -45,13 +43,12 @@ def toboggan_ride(grid, row, column, right, down)
   counter
 end
 
-# puts toboggan_ride(grid, row, column)
 
 trees = []
 slopes.each do |number, slope|
   slope.each do |right, down|
     trees << toboggan_ride(grid, row, column, right, down)
   end
-  require "pry"; binding.pry
 end
+puts trees
 p trees.inject(:*)
