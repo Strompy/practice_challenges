@@ -80,8 +80,13 @@ Find the number of Valid passports
 * Hashes will be good for checking that the required keys exist and they have values. Cons are that a duplicate key will overwrite the previous value. So will have to check for that
 
 ### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
-
-
+* Take inputs and parse, everything before a blank line is one passport, datafields are key:values pairs and each pair is seperated by a space `' '` or a newline `'/n'`
+* Create hash out of the inputs, checking for no duplicate keys
+* Incrementing counter for good passports
+* Check if keys equal 8, if so good
+* Check if keys equal 7, if so check for cid, if cid then no good
+* All else, no good
+* Alternate, check if keys equal required_keys
 
 ### Write out any implementation code OR link to repl
 
