@@ -14,6 +14,18 @@ iyr:2011 ecl:brn hgt:59in"
 
 
 def check_valid(passport)
-  require "pry"; binding.pry
+  return true if passport.keys.length == 8
+  if passport.keys.length == 7 && passport.keys.include?(:cid)
+    return false
+  elsif passport.keys.length == 7
+    return true
+  else
+    return false
+  end
+end
 
+def number_of_valid(passports)
+  passports.count do |passport|
+    check_valid(passport)
+  end
 end
