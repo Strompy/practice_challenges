@@ -86,4 +86,42 @@ class PassportTest < Minitest::Test
 
     assert_equal 2, number_of_valid(passports)
   end
+
+  def test_check_extra_valid_passport
+    byr1 = "2002"
+    byr2 = '2003'
+
+    hgt = '60in'
+    hgt = '190cm'
+    hgt = '190in'
+    hgt = '190'
+
+    hcl = '#123abc'
+    hcl = '#123abz'
+    hcl = '123abc'
+
+    ecl = 'brn'
+    ecl = 'wat'
+
+    pid = '000000001'
+    pid = '0123456789'
+
+    assert_equal true, check_byr(byr1)
+    assert_equal false, check_byr(byr2)
+
+    assert_equal true, check_hgt(hgt1)
+    assert_equal true, check_hgt(hgt2)
+    assert_equal false, check_hgt(hgt3)
+    assert_equal false, check_hgt(hgt4)
+
+    assert_equal true, check_hcl(hcl1)
+    assert_equal false, check_hcl(hcl2)
+    assert_equal false, check_hcl(hcl3)
+
+    assert_equal true, check_ecl(ecl1)
+    assert_equal false, check_ecl(ecl2)
+
+    assert_equal true, check_pid(pid1)
+    assert_equal false, check_pid(pid2)
+  end
 end
