@@ -1,14 +1,3 @@
-# passport = {}
-# passpoorts = []
-# inputs = File.readlines("input.txt").each do |line|
-#   require "pry"; binding.pry
-#   if line == "\n"
-#     passports << passport
-#     passport = Hash.new
-#   end
-#   passport
-# end
-
 passports = File.read("input.txt").split("\n\n").map do |passport|
   passport.scan(/(\w+{3})\:(\S+)/).to_h
 end
