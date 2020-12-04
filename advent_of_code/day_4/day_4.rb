@@ -45,11 +45,10 @@ def check_eyr(credential)
 end
 
 def check_hgt(credential)
-  unit = credential[-2..-1]
-  measure = credential[0..-3].to_i
-  if unit == 'in' && (59..76).include?(measure)
+  measure = credential.to_i
+  if credential.end_with?('in') && (59..76).include?(measure)
     true
-  elsif unit == 'cm' && (150..193).include?(measure)
+  elsif credential.end_with?('cm') && (150..193).include?(measure)
     true
   else
     false
