@@ -2,6 +2,7 @@ passports = File.read("input.txt").split("\n\n").map do |passport|
   passport.scan(/(\w+{3})\:(\S+)/).to_h
 end
 
+EYE_COLORS = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
 
 def check_valid(passport)
   return true if passport.keys.length == 8
@@ -58,8 +59,7 @@ def check_hcl(credential)
 end
 
 def check_ecl(credential)
-  require "pry"; binding.pry
-
+  EYE_COLORS.include?(credential)
 end
 
 def check_pid(credential)

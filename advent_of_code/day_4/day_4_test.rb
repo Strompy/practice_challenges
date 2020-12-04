@@ -125,14 +125,14 @@ class PassportTest < Minitest::Test
     assert_equal true, check_hgt(hgt2)
     assert_equal false, check_hgt(hgt3)
     assert_equal false, check_hgt(hgt4)
-    
+
     assert_equal true, check_hcl(hcl1)
     assert_equal false, check_hcl(hcl2)
     assert_equal false, check_hcl(hcl3)
 
-    # assert_equal true, check_ecl(ecl1)
-    # assert_equal false, check_ecl(ecl2)
-    #
+    assert_equal true, check_ecl(ecl1)
+    assert_equal false, check_ecl(ecl2)
+
     # assert_equal true, check_pid(pid1)
     # assert_equal false, check_pid(pid2)
   end
