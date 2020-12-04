@@ -91,20 +91,20 @@ class PassportTest < Minitest::Test
     byr1 = "2002"
     byr2 = '2003'
 
-    hgt = '60in'
-    hgt = '190cm'
-    hgt = '190in'
-    hgt = '190'
+    hgt1 = '60in'
+    hgt2 = '190cm'
+    hgt3 = '190in'
+    hgt4 = '190'
 
-    hcl = '#123abc'
-    hcl = '#123abz'
-    hcl = '123abc'
+    hcl1 = '#123abc'
+    hcl2 = '#123abz'
+    hcl3 = '123abc'
 
-    ecl = 'brn'
-    ecl = 'wat'
+    ecl1 = 'brn'
+    ecl2 = 'wat'
 
-    pid = '000000001'
-    pid = '0123456789'
+    pid1 = '000000001'
+    pid2 = '0123456789'
 
     assert_equal true, check_byr(byr1)
     assert_equal false, check_byr(byr2)
