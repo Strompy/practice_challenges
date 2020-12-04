@@ -47,47 +47,47 @@ class PassportTest < Minitest::Test
   end
 
   def check_number_of_valid_passports
-    passport = {
-      "ecl":"gry",
-      "pid":"860033327",
-      "eyr":"2020",
-      "hcl":"#fffffd",
-      "byr":"1937",
-      "iyr":"2017",
-      "cid":"147",
-      "hgt":"183cm"
+    passport1 = {
+      "ecl" => "gry",
+      "pid" => "860033327",
+      "eyr" => "2020",
+      "hcl" => "#fffffd",
+      "byr" => "1937",
+      "iyr" => "2017",
+      "cid" => "147",
+      "hgt" => "183cm"
     }
     passport2 = {
-      "iyr":"2013",
-      "ecl":"amb",
-      "cid":"350",
-      "eyr":"2023",
-      "pid":"028048884",
-      "hcl":"#cfa07d",
-      "byr":"1929"
+      "iyr" => "2013",
+      "ecl" => "amb",
+      "cid" => "350",
+      "eyr" => "2023",
+      "pid" => "028048884",
+      "hcl" => "#cfa07d",
+      "byr" => "1929"
     }
     passport3 = {
-      "hcl":"#ae17e1",
-      "iyr":"2013",
-      "eyr":"2024",
-      "ecl":"brn", "pid":"760753108",
-      "byr":"1931",
-      "hgt":"179cm"
+      "hcl" => "#ae17e1",
+      "iyr" => "2013",
+      "eyr" => "2024",
+      "ecl" => "brn", "pid" => "760753108",
+      "byr" => "1931",
+      "hgt" => "179cm"
     }
     passport4 = {
-      "hcl":"#cfa07d",
-      "eyr":"2025",
-      "pid":"166559648",
-      "iyr":"2011",
-      "ecl":"brn",
-      "hgt":"59in"
+      "hcl" => "#cfa07d",
+      "eyr" => "2025",
+      "pid" => "166559648",
+      "iyr" => "2011",
+      "ecl" => "brn",
+      "hgt" => "59in"
     }
-    passports = [passport1, passport2, passport3, passport4]
+    @passports = [passport1, passport2, passport3, passport4]
 
-    assert_equal 2, number_of_valid(passports)
+    assert_equal 2, number_of_valid(@passports)
   end
 
-  def test_check_extra_valid_passport
+  def test_check_credentials
     byr1 = '2002'
     byr2 = '2003'
 
@@ -111,6 +111,7 @@ class PassportTest < Minitest::Test
 
     pid1 = '000000001'
     pid2 = '0123456789'
+    pid3 = '23478fhj6'
 
     assert_equal true, check_byr(byr1)
     assert_equal false, check_byr(byr2)
@@ -133,7 +134,56 @@ class PassportTest < Minitest::Test
     assert_equal true, check_ecl(ecl1)
     assert_equal false, check_ecl(ecl2)
 
-    # assert_equal true, check_pid(pid1)
-    # assert_equal false, check_pid(pid2)
+    assert_equal true, check_pid(pid1)
+    assert_equal false, check_pid(pid2)
+    assert_equal false, check_pid(pid3)
+
+    passport1 = {
+      "ecl" => "gry",
+      "pid" => "860033327",
+      "eyr" => "2020",
+      "hcl" => "#fffffd",
+      "byr" => "1937",
+      "iyr" => "2017",
+      "cid" => "147",
+      "hgt" => "183cm"
+    }
+
+    passport2 = {
+      "ecl" => "gry",
+      "pid" => "860033327",
+      "eyr" => "2020",
+      "hcl" => "ffffffd",
+      "byr" => "1937",
+      "iyr" => "2017",
+      "cid" => "147",
+      "hgt" => "183cm"
+    }
+    passport3 = {
+      "ecl" => "grt",
+      "pid" => "860033327",
+      "eyr" => "2020",
+      "hcl" => "ffffffd",
+      "byr" => "1937",
+      "iyr" => "2017",
+      "cid" => "147",
+      "hgt" => "183cm"
+    }
+    passport4 = {
+      "ecl" => "grt",
+      "pid" => "860033327",
+      "eyr" => "2020",
+      "byr" => "1937",
+      "iyr" => "2017",
+      "cid" => "147",
+      "hgt" => "183cm"
+    }
+
+    passports = [passport1, passport2, passport3, passport4]
+
+    assert_equal true, valid_credentials?(passport1)
+    assert_equal false, valid_credentials?(passport2)
+    assert_equal false, valid_credentials?(passport3)
+    assert_equal 1, number_of_extra_valid(passports)
   end
 end
