@@ -90,13 +90,7 @@ p number_of_extra_valid(passports)
 
 
 
-# passports = File.read("input.txt").split("\n\n")
-#
-# passports.map! do |passport|
-#   passport.scan(/(\w+{3})\:(\S+)/).to_h
-# end
-#
-# puts passports.select { |passport|
+# puts passports.count { |passport|
 #   (passport.keys & %w{byr iyr eyr hgt hcl ecl pid}).length == 7 &&
 #   passport['byr'].to_i.between?(1920, 2002) &&
 #   passport['iyr'].to_i.between?(2010, 2020) &&
@@ -107,4 +101,4 @@ p number_of_extra_valid(passports)
 #   (
 #     (passport['hgt'].end_with?('cm') && passport['hgt'].to_i.between?(150, 193)) || (passport['hgt'].end_with?('in') && passport['hgt'].to_i.between?(59, 76))
 #   )
-# }.size
+# }
