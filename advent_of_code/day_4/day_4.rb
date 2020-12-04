@@ -29,15 +29,36 @@ def check_byr(credential)
   credential.length == 4 && (1920..2002).include?(credential.to_i)
 end
 
-def check_hgt(credential)
+def check_iyr(credential)
+  credential.length == 4 && (2010..2020).include?(credential.to_i)
+end
 
+def check_eyr(credential)
+  credential.length == 4 && (2020..2030).include?(credential.to_i)
+end
+
+def check_hgt(credential)
+  unit = credential[-2..-1]
+  measure = credential[0..-3].to_i
+  if unit == 'in' && (59..76).include?(measure)
+    true
+  elsif unit == 'cm' && (150..193).include?(measure)
+    true
+  else
+    false
+  end
 end
 
 def check_hcl(credential)
-
+  if credential.match?(/\A#[0-9a-f]{6}\z/)
+    true
+  else
+    false
+  end
 end
 
 def check_ecl(credential)
+  require "pry"; binding.pry
 
 end
 

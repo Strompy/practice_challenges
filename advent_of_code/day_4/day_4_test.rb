@@ -88,8 +88,14 @@ class PassportTest < Minitest::Test
   end
 
   def test_check_extra_valid_passport
-    byr1 = "2002"
+    byr1 = '2002'
     byr2 = '2003'
+
+    iyr1 = '2010'
+    iyr2 = '2021'
+
+    eyr1 = '2020'
+    eyr2 = '2000'
 
     hgt1 = '60in'
     hgt2 = '190cm'
@@ -109,19 +115,25 @@ class PassportTest < Minitest::Test
     assert_equal true, check_byr(byr1)
     assert_equal false, check_byr(byr2)
 
+    assert_equal true, check_iyr(iyr1)
+    assert_equal false, check_iyr(iyr2)
+
+    assert_equal true, check_eyr(eyr1)
+    assert_equal false, check_eyr(eyr2)
+
     assert_equal true, check_hgt(hgt1)
     assert_equal true, check_hgt(hgt2)
     assert_equal false, check_hgt(hgt3)
     assert_equal false, check_hgt(hgt4)
-
+    
     assert_equal true, check_hcl(hcl1)
     assert_equal false, check_hcl(hcl2)
     assert_equal false, check_hcl(hcl3)
 
-    assert_equal true, check_ecl(ecl1)
-    assert_equal false, check_ecl(ecl2)
-
-    assert_equal true, check_pid(pid1)
-    assert_equal false, check_pid(pid2)
+    # assert_equal true, check_ecl(ecl1)
+    # assert_equal false, check_ecl(ecl2)
+    #
+    # assert_equal true, check_pid(pid1)
+    # assert_equal false, check_pid(pid2)
   end
 end
