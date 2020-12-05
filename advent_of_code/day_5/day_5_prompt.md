@@ -39,3 +39,57 @@ Here are some other boarding passes:
     `BBFFBBFRLL`: row `102`, column `4`, seat ID `820`.
 
 As a sanity check, look through your list of boarding passes. **What is the highest seat ID on a boarding pass?**
+
+# Part 2
+
+
+
+
+### Rewrite the question in your own words:
+Boarding passess have the seat denoted by a binary space partition.
+to find the row, look through the F and B characters (first 7 of the seat)
+f means front half, b means back half.
+Based on the available rows split the available rows into the front or back half based on f or b, continue until down to one row.
+The next 3 characters are for the seat/column. L for left half, r for right half. following the same pattern to locate the exact seat.
+Then calculate the seat ID with the formula row * 8 + column
+Find the largest seat ID
+
+### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
+* I assume there are no duplicate seats, but that may not matter since ultimately I am looking for the greatest seat ID.
+* I will have to iterate through all the data, although if I am just trying to find the highest seat ID there may be a way to cut the data down. The bigger the row number the bigger the seat ID. so something like `BBBBBBB` would be the last most row and there for bigger than all other rows.
+* The more Bs earlier in the code, the farther back the seat.
+* similarly for the columns, `LLL` is the highest  number
+* Maybe I can ignore seats that don't meet a baseline threshold of starting with `BB` and starting with at least `L`, although the addition of the column is small fish compared to multiplication
+
+### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
+Convert data into an array
+Could sort, but that would add a lot of complexity and time, that may not help much
+Iterate through and find the highest seat values, ignoring certain parameters.
+Do the math on every remaining seat and keep highest value
+
+### How would you identify the elements of this problem?
+
+- [X] Searching of Data
+- [ ] Sorting of Data
+- [ ] Pattern Recognition
+- [ ] Build/Navigate a Grid
+- [X] Math
+- [ ] Language API knowledge
+- [ ] Optimization
+
+
+### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
+I think I will use an array for the inputs. Easy to iterate over and I don't have any values to attach. Plus I probably have to look through all the data to an extent. Con is that iterating through will be linear time at the absolute best and will likely be greater based on my searching
+
+### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Input lines into an array
+iterate through the data
+If doesn't start with `BB` then move on
+If meets criteria then calculate the row and column and seat ID. Store if greater than the last stored ID
+Output seat ID
+
+
+### Write out any implementation code OR link to repl
+See day_5.rb
+
+### What is the Big O complexity of your solution?
