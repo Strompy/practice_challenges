@@ -49,29 +49,41 @@ For each group, count the number of questions to which anyone answered "yes". **
 
 ## Solution
 ### Rewrite the question in your own words:
-
+Count the number of questions that have at least one 'yes' answer per group
+Then sum the total off all counts
 
 ### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
-
+* All or none of the questions could be answered "yes"
+* Groups can be of any size
+* Answer letters are not alphabetical, could be any random pattern
+* For part one at least, I don't care about duplicate answers. I have a feeling part 2 will change that
 
 ### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
-
+Pull in data and split into groups based on `\n\n`
+I could try filtering out duplicates and then counting the remaining chars
+Or I could put into a hash with the key being the letter and the value being the count for that letter
+Then count the total keys. I like that idea more
 
 ### How would you identify the elements of this problem?
 
 - [ ] Searching of Data
-- [ ] Sorting of Data
+- [X] Sorting of Data
 - [ ] Pattern Recognition
 - [ ] Build/Navigate a Grid
-- [ ] Math
+- [X] Math
 - [ ] Language API knowledge
 - [ ] Optimization
 
 
 ### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
-
+I will start with a hash. That way I can store the count of particular letter in the value and I can easily get the sum of answered questions with the count of keys.
 
 ### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Read input text, splitting by double line break
+in each line, organize the letters into a hash
+Add size of the hash to the counter
+Store the hashes in an array? If I count as I go, I don't have to store the hashes. But that does make troubleshooting tougher.
+Return the counter
 
 ### Write out any implementation code OR link to repl
 
