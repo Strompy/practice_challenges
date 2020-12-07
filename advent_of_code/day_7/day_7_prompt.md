@@ -32,3 +32,46 @@ In the above rules, the following options would be available to you:
 So, in this example, the number of bag colors that can eventually contain at least one `shiny gold` bag is 4.
 
 **How many bag colors can eventually contain at least one `shiny gold` bag?** (The list of rules is quite long; make sure you get all of it.)
+
+
+# Part Two
+
+
+## Solution
+
+### Rewrite the question in your own words:
+Given a list of rules about bags containing other bags based on bag colors, in a russian doll manner, how many bag colors can eventually contain at least one `shiny gold` bag?
+
+### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
+* I'm not sure that all the rules will line up nicely. There is likely a mishmash overlapping options. Hopefully there are no recursive loops
+* A shiny gold bag can be anywhere in the stack, there is one line in the inputs that defines what shiny gold contains, but I don't really care what those are.
+* There are other types of gold, so I have to look for `shiny gold` exactly
+
+### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
+* First idea, parse all the rules and then find where shiny gold fits in
+* Second idea, Start with what contains shiny gold, then work backwards (red has shiny gold, light blue has red, etc.)
+* Could be a good use of recursion.
+
+### How would you identify the elements of this problem?
+
+- [X] Searching of Data
+- [ ] Sorting of Data
+- [ ] Pattern Recognition
+- [ ] Build/Navigate a Grid
+- [ ] Math
+- [ ] Language API knowledge
+- [ ] Optimization
+
+
+### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
+* Hashes could be good for bag colors and their rules, can look up a bag color directly
+
+### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Split input on `bags contain` for bag and rules
+Split the rules on the comma and store in an array?
+Start looking for values with shiny bag, then take those keys and search for them in values
+Add to the counter for every bag that contains the given bag
+
+### Write out any implementation code OR link to repl
+
+### What is the Big O complexity of your solution?
