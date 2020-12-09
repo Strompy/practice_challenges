@@ -86,4 +86,9 @@ class GameBuddyTest < Minitest::Test
 
     assert_equal 5, @gameboy.accumulator
   end
+
+  def test_it_can_escape_loop
+
+
+  end
 end
