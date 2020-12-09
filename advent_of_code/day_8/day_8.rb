@@ -22,7 +22,7 @@ class GameBuddy
     operation, argument = intruction.split(' ')
     return accumulate(argument) if operation == 'acc'
     return jump(argument) if operation == 'jmp'
-
+    return nope(argument) if operation == 'nop'
     # helper method to parse data?
     # run instruction based on which operation is passed
   end
@@ -48,8 +48,8 @@ class GameBuddy
     end
   end
 
-  def nope
-
+  def nope(argument)
+    @current_instruction += 1
   end
 
 end
