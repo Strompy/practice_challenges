@@ -16,6 +16,17 @@ class GameBuddy
     @instructions = instructions
     @accumulator = 0
     @current_instruction = 0
+    @executed = {}
+  end
+
+  def read_instructions
+    until current_instruction >= instructions.size
+      index = current_instruction
+      break if !@executed[index].nil?
+      operator(instructions[index])
+      @executed[index] = true
+    end
+    accumulator
   end
 
   def operator(instruction)
@@ -49,5 +60,4 @@ class GameBuddy
   def nope(argument)
     @current_instruction += 1
   end
-
 end

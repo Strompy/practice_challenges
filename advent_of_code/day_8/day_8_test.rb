@@ -77,4 +77,13 @@ class GameBuddyTest < Minitest::Test
     assert_equal 19, @gameboy.accumulator
     assert_equal 28, @gameboy.current_instruction
   end
+
+  def test_it_can_read_instructions
+    assert_equal 0, @gameboy.accumulator
+    assert_equal 0, @gameboy.current_instruction
+
+    @gameboy.read_instructions
+
+    assert_equal 5, @gameboy.accumulator
+  end
 end
