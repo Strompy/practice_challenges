@@ -60,23 +60,30 @@ Givena set up of 25 numbers, each following number must be a combination of 2 of
 
 
 ### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
-
+Could just go brute force, look through the previous 25 and add them all, or at least subtract from the current value and look for the result.
+Use permutation to find all the pairs, look for the pair that equals the current value
+Store everything in an array
 
 ### How would you identify the elements of this problem?
 
-- [ ] Searching of Data
+- [X] Searching of Data
 - [ ] Sorting of Data
 - [ ] Pattern Recognition
 - [ ] Build/Navigate a Grid
-- [ ] Math
+- [X] Math
 - [ ] Language API knowledge
 - [ ] Optimization
 
 
 ### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
-
+Arrays. One to hold all the data and iterate through. Then make sub arrays using permutation. inefficient, but it should work
 
 ### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Turn input into an array
+Iterate through the array, starting at 25
+permutate the previous 25 values of the array
+find the sum that equals the current value.
+if no sum, break and return current value
 
 ### Write out any implementation code OR link to repl
 See day_8.rb
