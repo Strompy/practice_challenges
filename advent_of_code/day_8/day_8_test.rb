@@ -37,7 +37,7 @@ class GameBuddyTest < Minitest::Test
   def test_it_can_accumulate
     assert_equal 0, @gameboy.accumulator
 
-    @gameboy.accumlate('+2')
+    @gameboy.accumulate('+2')
     assert_equal 2, @gameboy.accumulator
   end
 
@@ -63,8 +63,18 @@ class GameBuddyTest < Minitest::Test
 
   def test_it_can_operator
     assert_equal 0, @gameboy.accumulator
-    @gameboy.accumlate('+2')
+    assert_equal 0, @gameboy.current_instruction
 
-    assert_equal 2, @gameboy.accumulator
+    @gameboy.operator('acc +19')
+    assert_equal 19, @gameboy.accumulator
+    assert_equal 1, @gameboy.current_instruction
+
+    @gameboy.operator('jmp +26')
+    assert_equal 19, @gameboy.accumulator
+    assert_equal 27, @gameboy.current_instruction
+
+    @gameboy.operator('nop -17')
+    assert_equal 19, @gameboy.accumulator
+    assert_equal 28, @gameboy.current_instruction
   end
 end
