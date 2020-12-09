@@ -107,6 +107,8 @@ class GameBuddyTest < Minitest::Test
     'nop -4',
     'acc +6']
     @gameboy.change_instructions
-    assert_equal corrected, @gameboy.instructions
+
+    assert_equal 8, @gameboy.accumulator
+    # assert_equal corrected, @gameboy.instructions
   end
 end
