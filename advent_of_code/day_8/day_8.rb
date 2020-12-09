@@ -50,3 +50,9 @@ class GameBuddy
     @current_instruction += 1
   end
 end
+
+input = File.read("input.txt").split("\n")
+
+gamebuddy = GameBuddy.new(input)
+puts 'Part 1:'
+puts gamebuddy.read_instructions
