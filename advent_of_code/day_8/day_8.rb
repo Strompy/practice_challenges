@@ -19,15 +19,13 @@ class GameBuddy
   end
 
   def operator(instruction)
-    operation, argument = intruction.split(' ')
+    operation, argument = instruction.split(' ')
     return accumulate(argument) if operation == 'acc'
     return jump(argument) if operation == 'jmp'
     return nope(argument) if operation == 'nop'
-    # helper method to parse data?
-    # run instruction based on which operation is passed
   end
 
-  def accumlate(argument)
+  def accumulate(argument)
     if argument[0] == '+'
       @accumulator += argument[/\d+/].to_i
     elsif argument[0] == '-'
