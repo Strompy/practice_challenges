@@ -18,10 +18,10 @@ class GameBuddy
     @current_instruction = 0
   end
 
-  def operation(instruction)
-    operate, argument = intruction.split(' ')
-    return accumulate(argument) if operate == 'acc'
-    return jump(argument) if operate == 'jmp'
+  def operator(instruction)
+    operation, argument = intruction.split(' ')
+    return accumulate(argument) if operation == 'acc'
+    return jump(argument) if operation == 'jmp'
 
     # helper method to parse data?
     # run instruction based on which operation is passed

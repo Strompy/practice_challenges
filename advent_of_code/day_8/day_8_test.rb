@@ -51,7 +51,7 @@ class GameBuddyTest < Minitest::Test
     assert_equal 1, @gameboy.current_instruction
   end
 
-  def test_it_can_operation
+  def test_it_can_operator
     assert_equal 0, @gameboy.accumulator
     @gameboy.accumlate('+2')
 
