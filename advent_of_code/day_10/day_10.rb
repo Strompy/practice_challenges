@@ -12,7 +12,6 @@ end
 print "Part 1: "
 p part1(data)
 
-
 def dp(adapters, hash, n)
   return 1 if n == 0
   return 0 if !adapters.include?(n)
