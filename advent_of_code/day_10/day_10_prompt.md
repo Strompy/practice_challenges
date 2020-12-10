@@ -94,27 +94,38 @@ Find a chain that uses all of your adapters to connect the charging outlet to yo
 Create of chain of all the joltage adapters based on the rules that an adapter can only connect to a source that is 1-3 jolts lower than itself. Then find the number of 1 jolt differences and 3 jolt differences, multiply those differences together for the answer.
 
 ### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
-
+* I assume that all of the adapters can get used, but then just sorting the data would basically solve the problem
+* The device rules don't seem relevant to part one
 
 ### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
-
+* Parse data
+* Sort
+* Go through and collect the differences
 
 ### How would you identify the elements of this problem?
 
 - [ ] Searching of Data
-- [ ] Sorting of Data
+- [X] Sorting of Data
 - [ ] Pattern Recognition
 - [ ] Build/Navigate a Grid
-- [ ] Math
+- [X] Math
 - [ ] Language API knowledge
 - [ ] Optimization
 
 
 ### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
-
+An array since it is an ordered list of all the elements. Easy to traverse in order and find differences as well. Con is that it would be harder to look up one element if needed for some reason
 
 ### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Parse inputs into an array
+Sort smallest to largest
+iterate through and calculate the differences between each pair
+Collect the differences in a hash
+multiply the 1 differences by the 3 differences
+...
+Profit
 
 ### Write out any implementation code OR link to repl
+See day_10.rb
 
 ### What is the Big O complexity of your solution?
