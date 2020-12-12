@@ -101,3 +101,57 @@ L.#.L..#..
 At this point, something interesting happens: the chaos stabilizes and further applications of these rules cause no seats to change state! Once people stop moving around, you count `37` occupied seats.
 
 Simulate your seating area by applying the seating rules repeatedly until no seats change state. **How many seats end up occupied?**
+
+# Part Two
+
+## Solution
+### Rewrite the question in your own words:
+Take your map of the seats, `#` occupied, `L` open, and `.` floor.
+Following the rules of seats changing state, at a certain point the map will stop changing
+At that point How many seats are occupied?
+Rules:
+* An `L` seat, with no occupied `#` seats adjacent it switches to `#`
+* A `#` occupied seat with four or more adjacent `#` occupied seats becomes `L` empty
+* Floor never changes
+
+### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
+* It could be any range of rounds before the changes stop
+* For the first rule, I assume a `.L.` pattern counts, since those are not occupied seats. Floor counts as not occupied seat
+* Each change happens simultaneously, so if two open seats are together they both become filled together, not one after the other
+* It seems like adjacent is the next closest seat in any direction, one of eight directions, up, down, left, right and 4 diagonals. Edge seats will have fewer
+
+### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
+So with that adjacent rule, that makes this a grid problem. So nested arrays will be used. Can navigate with index numbers.
+Will have to track changes somehow to make it all change at once and not as I go, since that would change the results
+Make a copy of the seats array
+Navigate through the copy, checking if seats hit criteria
+change copy
+break if seats == copy at the end
+
+### How would you identify the elements of this problem?
+
+- [ ] Searching of Data
+- [ ] Sorting of Data
+- [ ] Pattern Recognition
+- [X] Build/Navigate a Grid
+- [ ] Math
+- [ ] Language API knowledge
+- [ ] Optimization
+
+
+### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
+So with that adjacent rule, that makes this a grid problem. So nested arrays will be used. Can navigate with index numbers. Will have to up the space complexity by making duplicates to check if there has been a change.
+
+### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Create navigation arrays, to check adjacent seats.
+Parse input data into nested arrays
+iterate over the data with index numbers.
+Height and width are different sizes, keep that in mind
+Define rules to check adjacent seats
+
+
+### Write out any implementation code OR link to repl
+See Day_11.rb
+
+
+### What is the Big O complexity of your solution?
