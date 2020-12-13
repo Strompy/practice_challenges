@@ -36,11 +36,19 @@ class Boat
 
   def move(action, value)
     case action
-    when 'N' then require "pry"; binding.pry
-    when 'E' then require "pry"; binding.pry
-    when 'S' then require "pry"; binding.pry
-    when 'W' then require "pry"; binding.pry
+    when 'N' then x + value
+    when 'E' then y + value
+    when 'S' then x - value
+    when 'W' then y - value
+    when 'F' then forward(value)
     end
+  end
+
+  def forward(value)
+    x + value if direction == :north
+    y + value if direction == :east
+    x - value if direction == :south
+    y - value if direction == :west
   end
 
 end
