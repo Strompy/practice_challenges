@@ -26,11 +26,11 @@ class Boat
   def rotate(action, value)
     turn = value / 90
     if action == 'R'
-      new_direction = cardinals.find_index(:east) + turn
+      new_direction = cardinals.find_index(direction) + turn
       @direction = cardinals[new_direction % 4]
     else
-      new_direction = cardinals.find_index(:east) - turn
-      @direction = cardinals[new_direction % 4]
+      new_direction = cardinals.find_index(direction) - turn
+      @direction = cardinals[new_direction]
     end
   end
 
@@ -51,9 +51,12 @@ class Boat
     @y -= value if direction == :west
   end
 
+  def manhattan_value
+    x.abs + y.abs
+  end
 end
 
 boat = Boat.new(instructions)
 boat.navigate
-require "pry"; binding.pry
-# print boat.x + boat.y
+puts "Part 1: "
+p boat.manhattan_value
