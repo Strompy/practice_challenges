@@ -37,3 +37,54 @@ These instructions would be handled as follows:
 At the end of these instructions, the ship's Manhattan distance (sum of the absolute values of its east/west position and its north/south position) from its starting position is `17 + 8 = 25`.
 
 Figure out where the navigation instructions lead. **What is the Manhattan distance between that location and the ship's starting position?**
+
+# Part Two
+## Solution
+
+### Rewrite the question in your own words:
+Follow the navigation instructions, then at the end add the absolute values of the positions
+Only `L` and `R` turn the direction the ship is facing
+
+### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
+* can track coordinates instead of north/south east/west, and then add the absolute values. That way I don't have to worry about swapping direction when crossing the axis
+* I assume based on a quick search that rotations will not be greater than 270 (nothing beyond a full rotation)
+* I assume units moved could be any size
+
+### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
+* Track direction, x, and y coordinates
+* north/south movements are x axis
+* east/west are y axis
+* Make rules for each movement
+
+### How would you identify the elements of this problem?
+
+- [ ] Searching of Data
+- [ ] Sorting of Data
+- [ ] Pattern Recognition
+- [X] Build/Navigate a Grid
+- [ ] Math
+- [ ] Language API knowledge
+- [ ] Optimization
+
+
+### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
+At the moment I will just be storing integers and strings for the tracking variables.
+Storing the inputs in an array to easily iterate through
+
+### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Parse input into array of directions
+Setup tracking variables
+Initial position is 0, initial direction is east
+
+define method for rotation, using if/else for left and right
+Rotate number of times degrees divides by 90
+
+define method for moving coordinates
+
+iterate through the inputs following instructions
+
+
+### Write out any implementation code OR link to repl
+See day_12.rb
+
+### What is the Big O complexity of your solution?
