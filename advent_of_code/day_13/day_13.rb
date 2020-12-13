@@ -4,15 +4,15 @@ ids = input.reduce([]) do |ids, id|
   ids
 end
 earliest = 1008713
-t = earliest
+i = earliest
 answer = nil
 
 until !answer.nil? do
   ids.each do |id|
-    if t % id == 0
-      answer = id * (t - earliest)
+    if i % id == 0
+      answer = id * (i - earliest)
     end
   end
-  t += 1
+  i += 1
 end
 puts "Part 1: #{answer}"
