@@ -36,22 +36,24 @@ class Boat
 
   def move(action, value)
     case action
-    when 'N' then x + value
-    when 'E' then y + value
-    when 'S' then x - value
-    when 'W' then y - value
+    when 'N' then @x += value
+    when 'E' then @y += value
+    when 'S' then @x -= value
+    when 'W' then @y -= value
     when 'F' then forward(value)
     end
   end
 
   def forward(value)
-    x + value if direction == :north
-    y + value if direction == :east
-    x - value if direction == :south
-    y - value if direction == :west
+    @x += value if direction == :north
+    @y += value if direction == :east
+    @x -= value if direction == :south
+    @y -= value if direction == :west
   end
 
 end
 
 boat = Boat.new(instructions)
-print boat.navigate
+boat.navigate
+require "pry"; binding.pry
+# print boat.x + boat.y
