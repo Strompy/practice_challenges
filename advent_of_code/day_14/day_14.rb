@@ -18,4 +18,4 @@ inputs.each do |line|
 end
 
 puts "Part 1: "
-print mem.values.map { |num| num.to_i(2) }.sum
+p mem.values.map { |num| num.to_i(2) }.sum
