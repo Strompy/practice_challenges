@@ -53,29 +53,43 @@ Execute the initialization program. **What is the sum of all values left in memo
 
 ## Solution
 ### Rewrite the question in your own words:
-
+Given a bitmask and several lines of memory, change the lines of memory to the designated value, in binary. But the bitmask will change values. An `X` means no change, but a `1` or `0` change that location to the same.
+Since every line of memory starts at `0`, add up the total sum of all values at the end.
 
 ### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
-
+* Bitmasks could change all or nothing. Memory changes could be any number that fits in the string of 36 bits
+* Memory lines could be any number, getting very large. They start at 0, so I will initialize with a value of 0.
+* Memory lines could be overwritten again, but may not change all the bits.
 
 ### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
+* I will have to parse the data to get the bit mask and the following values. Making sure the bitmask is applied only to the corresponding values.
+* The values will have to be converted to binary, 36-bits would be nice otherwise I will have to add 0's or write char by char.
+* I think changing the value first and then changing according the bit map would be easier.
 
 
 ### How would you identify the elements of this problem?
 
 - [ ] Searching of Data
-- [ ] Sorting of Data
+- [X] Sorting of Data
 - [ ] Pattern Recognition
 - [ ] Build/Navigate a Grid
-- [ ] Math
+- [X] Math
 - [ ] Language API knowledge
 - [ ] Optimization
 
 
 ### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
-
+Hash for the memory lines, store the key as the line and the value as the 36-bit integer
+It will be easy to look up lines and change them, and can set the default value
+Strings for the values, so you can look up index values and change for the bitmask. THis will mean I have to do several conversions, to set the value and to calculate the final sum. I can use l-just to add `0`s if needed as well. Binary in Ruby is a string anyways...
 
 ### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Parse inputs into individual lines.
+Iterate over lines and set conditional for mask or mem
+If mask, set current_mask to value
+if mem, find the memory line and set the value
+then change the chars designated by the mask.
+Grab all the the values and sum
 
 ### Write out any implementation code OR link to repl
 
