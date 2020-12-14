@@ -1,4 +1,4 @@
-inputs = File.readlines('test.txt').map(&:chomp)
+inputs = File.readlines('input.txt').map(&:chomp)
 
 mem = Hash.new(0)
 mask = ''
@@ -21,48 +21,37 @@ puts "Part 1: "
 p mem.values.map { |num| num.to_i(2) }.sum
 
 # Part 2
+
+def floating(mem2, memory, value, mask, index = 0)
+  if index == value.size
+    mem2[memory] = value
+    return
+  end
+  if mask[index] == '0' # no change
+    floating(mem2, memory, value, mask, index + 1)
+  elsif mask[index] == '1' # change to '1'
+    memory_1 = memory.clone.tap { |x| x[index] = '1' }
+    floating(mem2, memory_1, value, mask, index + 1)
+  elsif mask[index] == 'X' #floating
+    memory_0 = memory.clone.tap { |x| x[index] = '0' } # First possible float change
+    memory_1 = memory.clone.tap { |x| x[index] = '1' } # Second possible float change
+    floating(mem2, memory_0, value, mask, index + 1)
+    floating(mem2, memory_1, value, mask, index + 1)
+  end
+end
+
 mem2 = Hash.new(0)
 inputs.each do |line|
   if line.start_with?('mask')
     _, mask = line.split(' = ')
   else
     memory, value = line.split(' = ')
-    memory = memory[/\d+/]
+    memory = memory[/\d+/].to_i.to_s(2).rjust(mask.size, '0')
     value = value.to_i.to_s(2).rjust(mask.size, '0')
-    mem2[memory] = value
-    mask.chars.each_with_index do |char, i|
-      mem2[memory][i] = '1' if char == '1'
-      mem2[memory][i] = 'X' if char == 'X'
-    end
+    floating(mem2, memory, value, mask)
   end
 end
 
-values = []
 
-def floating(num, values, index = 0)
-  if index == num.size
-    values << num
-    return 0
-  end
-  if num[index] == '0' || num[index] == '1' # No change
-    floating(num, values, index + 1)
-  elsif num[index] == 'X'
-    require "pry"; binding.pry
-    num_0 = num.clone.tap { |x| x[index] = '0' } # First possible float change
-    num_1 = num.clone.tap { |x| x[index] = '1' } # Second possible float change
-    floating(num_0, values, index + 1)
-    floating(num_1, values, index + 1)
-  end
-end
-
-mem2.values.each do |num|
-  if num.include?('X')
-    floating(num, values)
-  else
-    values << num.to_i(2)
-  end
-end
-require "pry"; binding.pry
-puts values.size
 puts "Part 2: "
-p values.map { |num| num.to_i(2) }.sum
+p mem2.values.map { |num| num.to_i(2) }.sum
