@@ -1,4 +1,4 @@
-inputs = File.readlines('input.txt').map(&:chomp)
+inputs = File.readlines('test.txt').map(&:chomp)
 
 mem = Hash.new(0)
 mask = ''
@@ -40,14 +40,14 @@ end
 values = []
 
 def floating(num, values, index = 0)
-  if index >= 36
+  if index == num.size
     values << num
-    return
+    return 0
   end
   if num[index] == '0' || num[index] == '1' # No change
     floating(num, values, index + 1)
   elsif num[index] == 'X'
-    # require "pry"; binding.pry
+    require "pry"; binding.pry
     num_0 = num.clone.tap { |x| x[index] = '0' } # First possible float change
     num_1 = num.clone.tap { |x| x[index] = '1' } # Second possible float change
     floating(num_0, values, index + 1)
@@ -62,7 +62,7 @@ mem2.values.each do |num|
     values << num.to_i(2)
   end
 end
-
+require "pry"; binding.pry
 puts values.size
 puts "Part 2: "
 p values.map { |num| num.to_i(2) }.sum
