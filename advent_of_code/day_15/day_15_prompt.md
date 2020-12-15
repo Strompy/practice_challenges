@@ -68,6 +68,8 @@ Following this pattern find the number that will be spoken on turn 2020
 ### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
 * Interesting challenge, will have to store elements with a turn number (index seems best). Numbers can repeat. So if using a hash, would need to store the number as the value. Array is probably better, the main trick is to go backwards through the array to find the most recent number, not the first instance.
 
+* For part two I will try a refactored solution using a hash, to help with look ups and performance. 
+
 
 ### How would you identify the elements of this problem?
 
