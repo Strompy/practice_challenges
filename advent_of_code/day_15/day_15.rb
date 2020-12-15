@@ -8,11 +8,11 @@ max = 30_000_000
 turns = max - starting.size
 
 turns.times do |turn|
-  first_time = numbers[previous_num].size == 1
-  previous_num = first_time ? 0 : (numbers[previous_num][-1] - numbers[previous_num][-2])
+  previous_num = numbers[previous_num].size == 1 ?
+    0 : (numbers[previous_num][-1] - numbers[previous_num][-2])
   numbers[previous_num] << turn + 7
 end
-puts "Part 2: #{previous_num}"
+puts "Turn #{max} result: #{previous_num}"
 
 # puts numbers
 # van_eck = Enumerator.new do |y|
