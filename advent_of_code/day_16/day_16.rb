@@ -15,10 +15,21 @@ File.readlines('input.txt').each do |line|
   end
   if current_section == 'fields'
     field, value = line.chomp.split(': ')
-    fields[field] = value
+    range1, range2 = value.split('or').flat_map { |a| a.split("-") }.map(&:to_i).each_slice(2).to_a
+    fields[field] = [range1, range2]
   elsif current_section == 'yours'
     your_ticket = line.chomp.split(',').map(&:to_i)
   elsif current_section == 'tickets'
     tickets << line.chomp.split(',').map(&:to_i)
   end
 end
+
+
+invalid = tickets.flat_map do |ticket|
+  ticket.select do |value|
+    fields.values.none? do |range1, range2|
+      value.between?(*range1) || value.between?(*range2)
+    end
+  end
+end
+puts "Part 1: #{invalid.sum}"
