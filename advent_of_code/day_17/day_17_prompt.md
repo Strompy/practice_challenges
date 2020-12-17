@@ -148,29 +148,44 @@ Starting with your given initial configuration, simulate six cycles. **How many 
 
 ## Solution
 ### Rewrite the question in your own words:
-
+Given a 3-D, infinite grid, with active and inactive cubes, find the number active cubes at the end of six cycles, following these rules:
+1) If a cube is **inactive** and **exactly 3** neighbors are active, it becomes **active**
+2) If a cube is **active** and **2 or 3** neighbors are active, it remains active, otherwise it becomes **inactive**
 
 ### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
-
+* The grid will expand with each turn
+* Expands forward and backwards (every neighbor is 1, -1 in each plane)
 
 ### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
-
+Since the grid expands endlessly and each cube starts at inactive, I don't have to build everything just set up a default value
+hashes to store values for all directions
 
 ### How would you identify the elements of this problem?
 
 - [ ] Searching of Data
 - [ ] Sorting of Data
 - [ ] Pattern Recognition
-- [ ] Build/Navigate a Grid
+- [X] Build/Navigate a Grid
 - [ ] Math
 - [ ] Language API knowledge
 - [ ] Optimization
 
 
 ### Which data structure(s) do you think you'll use? What pros/cons do you see with that choice?
+Nested arrays work for 2D grids, 3d feels a little different. I can't shortcut and track just the three variables for one point either, have to know which cells are active throughout
+I will know what I am looking up everytime (e.g 1x, -1x, 1y, -1y, 1z, -1z). So a hash may work. Location as the key and the value will be active or inactive.
 
 
 ### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Establish hash, default values as `false` or `.` or `inactive`
+Parse inputs into the hash, starting with `000`
+Then run the simulation, making an array of all the coords that will change
+Check through the hash following the rules
+check each neighbor (adding or subtract 1 from each axis)
+
+once every neighbor has been checked, iterate through the array changing each coordinate
+
+Repeat for 6 total turns
 
 ### Write out any implementation code OR link to repl
 
