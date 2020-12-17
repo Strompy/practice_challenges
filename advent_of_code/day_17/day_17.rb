@@ -25,7 +25,6 @@ end
   to_make = []
   coordinates.each do |coord, bool|
     count = count_neighbors(neighbors, coord, coordinates, to_make)
-    # require "pry"; binding.pry
     if bool == true
       if count == 2 || count == 3
         # new_state[coord] = true
