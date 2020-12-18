@@ -4,6 +4,7 @@ File.readlines('input.txt').each do |line|
 end
 
 test = '1 + 2 * 3 + 4 * 5 + 6'
+test2 = '1 + (2 * 3) + (4 * (5 + 6))'
 
 def solve(input)
   i = 0
@@ -42,4 +43,5 @@ def solve(input)
   sum
 end
 
-puts solve(test)
+puts solve(test) == 71
+puts solve(test2) == 51
