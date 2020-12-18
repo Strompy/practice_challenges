@@ -36,7 +36,7 @@ def solve(input)
     when '('
       snippet = input[i..-1][/[(] .* [)]/xms]
       # change index to skip to after the closing parenthesis
-      require "pry"; binding.pry
+      # require "pry"; binding.pry
       num = solve(snippet[1..-1])
       jump = input[i..-1].chars.find_index(')') + 1
       i += jump
@@ -79,3 +79,15 @@ puts solve(test7) == 18
 # end
 #
 # puts TASKS.sum { |task| eval task.reverse.gsub('+', '.add').gsub('*', '.mult').tr('()', ')(') }
+
+class Integer
+  def -(other)
+    self * other
+  end
+
+  def /(other)
+    self + other
+  end
+end
+
+p File.readlines('input.txt').map { |expr| eval(expr.tr('+*', '/-')) }.sum
