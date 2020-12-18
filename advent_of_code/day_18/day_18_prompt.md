@@ -39,21 +39,24 @@ Before you can help with the homework, you need to understand it yourself. **Eva
 
 ## Solution
 ### Rewrite the question in your own words:
-
+Evaluate the math equations based on the rules that operations happen left to right, with parentheses being evaluated first.
 
 ### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
 
 
 ### What are your initial thoughts about this problem? (high level design, 2-3 sentences)
-
+Parse each string into it's own line for evaluating.
+2 thoughts: Read left to write until hitting a parentheses or evaluate parantheses first and leaving the result in the place and then going left to right.
+Could make a base method for evaluating left to right, then recursively evaluate parentheses by sending them back in
+Probably need regex to grab parentheses sections
 
 ### How would you identify the elements of this problem?
 
 - [ ] Searching of Data
 - [ ] Sorting of Data
-- [ ] Pattern Recognition
+- [X] Pattern Recognition
 - [ ] Build/Navigate a Grid
-- [ ] Math
+- [X] Math
 - [ ] Language API knowledge
 - [ ] Optimization
 
@@ -62,6 +65,11 @@ Before you can help with the homework, you need to understand it yourself. **Eva
 
 
 ### Write out a few lines of initial pseudocode: (mid-level design, NOT REAL CODE)
+Can move through the input string by char or index.
+If a number convert to integer, then find the operator and do that with the next number.
+If it is a parentheses, pull out that whole section and send it back through the method
+Keep a running total for the left most item
+
 
 ### Write out any implementation code OR link to repl
 
