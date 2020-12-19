@@ -56,11 +56,11 @@ def solve(input)
   sum
 end
 
-# puts solve(test) == 71
-# puts solve(test2) == 51
-# puts solve(test3) == 26
-# puts solve(test4) == 437
-# puts solve(test5) == 12240
+puts solve(test) == 71
+puts solve(test2) == 51
+puts solve(test3) == 26
+puts solve(test4) == 437
+puts solve(test5) == 12240
 # puts solve(test6) == 13632
 puts solve(test7) == 18
 # puts solve(test7)
