@@ -16,7 +16,7 @@ invalid = ingredients.select do |ingredient|
   end
 end
 
-invalid = ingredients.select do |ings|
+inert = ingredients.select do |ings|
   potential = foods.select do|ingredients, allergens|
      ingredients.include?(ings)
    end.map(&:last).flatten.uniq
@@ -29,7 +29,29 @@ invalid = ingredients.select do |ings|
 end
 
 count = foods.map(&:first).flatten.count do |ingredient|
-  invalid.include?(ingredient)
+  inert.include?(ingredient)
 end
 
 puts "Part 1: #{count}"
+
+not_safe_foods = foods.map do |ingredients, allergens|
+  [ingredients - inert, allergens]
+end
+not_safe_ingredients = not_safe_foods.map(&:first).flatten.uniq
+
+contains = foods.flat_map do |ingredients, allergens|
+  allergens.map { |a| [a, ingredients] }
+end
+
+
+unsafe_foods = foods.map { |ings, allergs| [ ings - inert, allergs ] }
+ingredients = unsafe_foods.map(&:first).flatten.uniq.sort
+rules = unsafe_foods.flat_map { |ings, allergs| allergs.map { |a| [ a, ings ] } }.sort
+
+ingredients.permutation(allergens.length).each do |permutation|
+  hash = allergens.zip(permutation).to_h
+  if rules.all? { |aller, ings| ings.include?(hash[aller]) }
+    p hash.values.join(',')
+    break
+  end
+end

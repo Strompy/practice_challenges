@@ -24,6 +24,19 @@ Determine which ingredients cannot possibly contain any of the allergens in your
 
 # Part Two
 
+Now that you've isolated the inert ingredients, you should have enough information to figure out which ingredient contains which allergen.
+
+In the above example:
+
+    * `mxmxvkd` contains `dairy`.
+    * `sqjhc` contains `fish`.
+    * `fvjkl` contains `soy`.
+
+Arrange the ingredients **alphabetically by their allergen** and separate them by commas to produce your **canonical dangerous ingredient list**. (There should not be any spaces in your canonical dangerous ingredient list.) In the above example, this would be `mxmxvkd,sqjhc,fvjkl`.
+
+Time to stock your raft with supplies. **What is your canonical dangerous ingredient list?**
+
+
 ## Solution
 ### Rewrite the question in your own words:
 Ingredient lists are in an unknown language but you can read the allergen warnings. There may be more allergens in the ingredient list, but the listed ones are definitely there. Determine which ingredients cannot be allergens.
