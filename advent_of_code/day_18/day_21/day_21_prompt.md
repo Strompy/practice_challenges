@@ -26,7 +26,7 @@ Determine which ingredients cannot possibly contain any of the allergens in your
 
 ## Solution
 ### Rewrite the question in your own words:
-
+Ingredient lists are in an unknown language but you can read the allergen warnings. There may be more allergens in the ingredient list, but the listed ones are definitely there. Determine which ingredients cannot be allergens.
 
 ### What assumptions will you make about this problem if you cannot ask any more clarifying questions? What are your reasons for making those assumptions?
 
